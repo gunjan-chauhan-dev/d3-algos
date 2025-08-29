@@ -2,10 +2,6 @@
 
 Interactive visualizations for classic algorithms using D3.js. Built with Vite + TS.
 
-## Live demo
-Deploy with GitHub Pages (workflow included). After pushing to `main`, enable Pages:
-**Settings → Pages → Build and deployment → Source: GitHub Actions**.
-
 ## Run locally
 ```bash
 npm ci
