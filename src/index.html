@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 Algorithm Visualizations — Vite + TS</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>D3.js Algorithm Visualizations — Starter Gallery</h1>
+        <div class="sub">Bubble/Insertion sort (bars) and BFS on a grid. Extend by adding step generators.</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="panel">
+        <div class="controls">
+          <h2>Controls</h2>
+          <div class="row">
+            <label for="algorithm">Algorithm</label>
+            <select id="algorithm">
+              <option value="bubble">Sorting — Bubble Sort</option>
+              <option value="insertion">Sorting — Insertion Sort</option>
+              <option value="bfs">Graph — BFS (Grid Pathfinding)</option>
+            </select>
+          </div>
+
+          <div class="row algo sorting-only">
+            <label for="arrSize">Array size: <span id="arrSizeVal">40</span></label>
+            <input id="arrSize" type="range" min="5" max="100" step="1" value="40" />
+          </div>
+          <div class="row algo sorting-only">
+            <label for="arrSeed">Seed (optional)</label>
+            <input id="arrSeed" type="text" placeholder="leave blank for random" />
+          </div>
+
+          <div class="row algo bfs-only" style="display:none;">
+            <label for="gridSize">Grid (N × N): <span id="gridSizeVal">20</span></label>
+            <input id="gridSize" type="range" min="8" max="40" step="1" value="20" />
+          </div>
+          <div class="row algo bfs-only" style="display:none;">
+            <label for="wallProb">Wall density: <span id="wallProbVal">0.25</span></label>
+            <input id="wallProb" type="range" min="0" max="0.5" step="0.01" value="0.25" />
+          </div>
+
+          <div class="row">
+            <label for="speed">Speed (ms per step): <span id="speedVal">250</span></label>
+            <input id="speed" type="range" min="50" max="800" step="10" value="250" />
+          </div>
+
+          <div class="btnbar">
+            <button id="play" class="primary">Play</button>
+            <button id="pause">Pause</button>
+            <button id="step">Step</button>
+            <button id="reset" class="warn">Reset</button>
+          </div>
+
+          <div class="row" style="margin-top: 8px;">
+            <button id="shuffle">Shuffle / Regenerate</button>
+          </div>
+
+          <div class="row" style="margin-top: 12px;">
+            <div class="sub">Tip: Click on grid cells (BFS) to toggle walls; Shift+Click sets <b>source</b>; Alt/Option+Click sets <b>target</b>.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="legend" id="legend"></div>
+        <div class="stage">
+          <svg id="viz" width="100%" height="520" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet"></svg>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      Built with D3 v7. Extend by adding new step generators that emit actions, then map actions → animations.
+    </footer>
+
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/app.ts"></script>
+  </body>
+</html>
